@@ -2,11 +2,12 @@
 
 A simple notes application built with Dart.
 
+[![Dart](https://github.com/sntsbia/dart-notes-app/actions/workflows/dart.yml/badge.svg)](https://github.com/sntsbia/dart-notes-app/actions/workflows/dart.yml)
+
 ## Features
 
 - Create new notes
-- View existing notes
-- Edit notes
+- View all existing notes
 - Delete notes
 
 ## Getting Started
@@ -43,11 +44,24 @@ dart run
 After installing the dependencies, run the tests:
 
 ```bash
-
 dart test
 ```
 
 ## Usage
+
+When you run the application, you will be presented with a menu of options: 
+
+```bash
+Welcome to Dart Notes App!
+
+Enter a command:
+1 - Add Note
+2 - View Notes
+3 - Delete Note
+4 - Exit
+``` 
+
+Simply type the number corresponding to the action you want to perform and press Enter.
 
 
 ## Contributing
