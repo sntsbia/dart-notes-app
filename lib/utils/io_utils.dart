@@ -36,7 +36,8 @@ String stringFromInput(String prompt, validOptions) {
   String? input = stdin.readLineSync();
 
   while (input == null ||
-      (validOptions.isNotEmpty && !validOptions.contains(input))) {
+      (validOptions.isNotEmpty && !validOptions.contains(input)) ||
+      input.isEmpty) {
     print('Invalid input. Please try again.');
     print(prompt);
     input = stdin.readLineSync();

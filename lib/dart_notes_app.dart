@@ -3,20 +3,26 @@ import 'package:dart_notes_app/utils/io_utils.dart';
 void runDartNotesApp() {
   print('\nWelcome to Dart Notes App!\n');
 
-  List<String> notes = [];
+  List<String> notes = <String>[];
 
   while (true) {
     int command = getCommand();
 
     if (command == 1) {
       String noteContent = getNoteContent();
-      notes.add(noteContent);
-      print('Note added: $noteContent');
-      print('Notes: $notes');
+      notes = addNote(notes, noteContent);
+      print('Notes: $notes\n');
     } else if (command == 2) {
-      print('Viewing notes...');
+      viewNotes(notes);
     } else if (command == 3) {
-      print('Deleting note...');
+      int index =
+          integerFromInput(
+            "Enter the note number to delete:",
+            List<int>.generate(notes.length, (i) => i + 1),
+          ) -
+          1;
+      notes = deleteNote(notes, index);
+      print('Notes: $notes\n');
     } else if (command == 4) {
       print('Exiting...');
       break;
@@ -34,4 +40,30 @@ int getCommand() {
 
 String getNoteContent() {
   return stringFromInput("Enter note content:", []);
+}
+
+List<String> addNote(List<String> notes, String noteContent) {
+  notes.add(noteContent);
+  return notes;
+}
+
+List<String> deleteNote(List<String> notes, int index) {
+  if (index >= 0 && index < notes.length) {
+    notes.removeAt(index);
+  }
+  return notes;
+}
+
+void viewNotes(List<String> notes) {
+  print('\nNotes:');
+  if (notes.isEmpty) {
+    print('No notes available.');
+  } else {
+    for (int i = 0; i < notes.length; i++) {
+      print('${i + 1}: ${notes[i]}');
+    }
+    // for (String note in notes) {
+    //   print('- $note');
+    // }
+  }
 }
