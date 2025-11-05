@@ -2,6 +2,8 @@
 
 A simple notes application built with Dart.
 
+[![Dart](https://github.com/sntsbia/dart-notes-app/actions/workflows/dart.yml/badge.svg)](https://github.com/sntsbia/dart-notes-app/actions/workflows/dart.yml)
+
 ## Features
 
 - Create new notes

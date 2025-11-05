@@ -1,11 +1,31 @@
 import 'package:dart_notes_app/utils/io_utils.dart';
 
-void runDartNotesApp() {
-  print('\nWelcome to Dart Notes App!\n');
+void title() {
+  print("███╗   ██╗ ██████╗ ████████╗███████╗███████╗");
+  print("████╗  ██║██╔═══██╗╚══██╔══╝██╔════╝██╔════╝");
+  print("██╔██╗ ██║██║   ██║   ██║   █████╗  ███████╗");
+  print("██║╚██╗██║██║   ██║   ██║   ██╔══╝  ╚════██║");
+  print("██║ ╚████║╚██████╔╝   ██║   ███████╗███████║");
+  print("╚═╝  ╚═══╝ ╚═════╝    ╚═╝   ╚══════╝╚══════╝");
+  print("                                            ");
+  print(" █████╗ ██████╗ ██████╗                     ");
+  print("██╔══██╗██╔══██╗██╔══██╗                    ");
+  print("███████║██████╔╝██████╔╝                    ");
+  print("██╔══██║██╔═══╝ ██╔═══╝                     ");
+  print("██║  ██║██║     ██║                         ");
+  print("╚═╝  ╚═╝╚═╝     ╚═╝                         ");
+}
 
+void runDartNotesApp() {
+  title();
   List<String> notes = <String>[];
 
+  menu(notes);
+}
+
+void menu(List<String> notes) {
   while (true) {
+    print("");
     int command = getCommand();
 
     switch (command) {
