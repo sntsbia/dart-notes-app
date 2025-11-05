@@ -8,24 +8,28 @@ void runDartNotesApp() {
   while (true) {
     int command = getCommand();
 
-    if (command == 1) {
-      String noteContent = getNoteContent();
-      notes = addNote(notes, noteContent);
-      print('Notes: $notes\n');
-    } else if (command == 2) {
-      viewNotes(notes);
-    } else if (command == 3) {
-      int index =
-          integerFromInput(
-            "Enter the note number to delete:",
-            List<int>.generate(notes.length, (i) => i + 1),
-          ) -
-          1;
-      notes = deleteNote(notes, index);
-      print('Notes: $notes\n');
-    } else if (command == 4) {
-      print('Exiting...');
-      break;
+    switch (command) {
+      case 1:
+        String noteContent = getNoteContent();
+        notes = addNote(notes, noteContent);
+        print('Notes: $notes\n');
+        break;
+      case 2:
+        viewNotes(notes);
+        break;
+      case 3:
+        int index =
+            integerFromInput(
+              "Enter the note number to delete:",
+              List<int>.generate(notes.length, (i) => i + 1),
+            ) -
+            1;
+        notes = deleteNote(notes, index);
+        print('Notes: $notes\n');
+        break;
+      case 4:
+        print('Exiting...');
+        return;
     }
     print('');
   }
